@@ -1,0 +1,15 @@
+{% for person in people %}
+<tr>
+  <td>{{ person.name }}</td>
+  <td>{{ person.address }}</td>
+  <td>{{ person.city }}</td>
+  <td>{{ person.state }}</td>
+  <td>{{ person.phone_number }}</td>
+  <td>{{ person.birth_date }}</td>
+  <td>{{ person.occupation }}</td>
+</tr>
+{% empty %}
+<tr>
+  <td colspan="7">Refine sua consulta!</td>
+</tr>
+{% endfor %}

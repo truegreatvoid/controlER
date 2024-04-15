@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="https://unpkg.com/htmx.org@1.9.11" integrity="sha384-0gxUXCCR8yv9FM2b+U3FDbsKthCI66oH5IA9fHppQq9DDMHuMauqq1ZHBpJxQ0J0" crossorigin="anonymous"></script>
+</head>
+<body>
+  <!-- <form method="GET" hx-get="{% url 'gestao_notas:person_list' %}" hx-target="#table-body" hx-trigger="keyup changed delay:500ms" hx-swap="outerHTML"> -->
+    <form hx-get="{% url 'gestao_notas:person_list' %}" hx-target="#table-body" hx-trigger="keyup changed delay:500ms" hx-swap="innerHTML">
+
+    <input type="text" name="name" placeholder="Name" value="{{ request.GET.name }}">
+    <input type="date" name="birth_date" placeholder="Birth Date" value="{{ request.GET.birth_date }}">
+    <!-- Adicione mais inputs conforme necessário -->
+    <input type="submit" style="display: none;">
+</form>
+
+<table>
+    <thead>
+    </thead>
+<tbody id="table-body">
+  <p>HTML PURO</p>
+
+    {% include '_person_list_body.html' %}
+</tbody>
+
+</table>
+
+<script src="https://unpkg.com/htmx.org"></script>
+
+</body>
+</html>

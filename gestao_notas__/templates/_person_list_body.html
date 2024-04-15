@@ -1,0 +1,13 @@
+<!-- _person_list_body.html -->
+{% if people %}
+<table>
+  {% for person in people %}
+  <tr>
+      <td>{{ person.name }}</td>
+      <td>{{ person.birth_date }}</td>
+  </tr>
+  {% endfor %}
+</table>
+{% else %}
+<div>No items found.</div>
+{% endif %}

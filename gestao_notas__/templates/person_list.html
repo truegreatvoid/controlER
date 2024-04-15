@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Person List</title>
+  <!-- Carrega o HTMX uma única vez e usa a versão específica para garantir compatibilidade -->
+  <script src="https://unpkg.com/htmx.org@1.9.11" integrity="sha384-0gxUXCCR8yv9FM2b+U3FDbsKthCI66oH5IA9fHppQq9DDMHuMauqq1ZHBpJxQ0J0" crossorigin="anonymous"></script>
+</head>
+<body>
+  <form hx-get="{% url 'gestao_notas:person_list' %}" hx-target="#results" hx-trigger="submit">
+    <input type="search" name="name" placeholder="Name">
+    <input type="date" name="birth_date" placeholder="Birth Date">
+    <button type="submit">Search</button>
+  </form>
+
+  <!-- Contêiner que será atualizado com a resposta HTMX -->
+  <div id="results">
+    {% include '_person_list_body.html' %}
+  </div>
+</body>
+</html>
